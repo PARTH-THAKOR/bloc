@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-
 import 'themes.dart';
 
 class DashAccountR extends StatelessWidget {
@@ -152,4 +151,3 @@ class DashAccountR extends StatelessWidget {
     );
   }
 }
-

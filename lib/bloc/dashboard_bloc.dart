@@ -11,9 +11,9 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc() : super(const DashboardState()) {
     on<DashboardEvent>((event, emit) {
       if (event is DashAccount) {
-        emit(DashboardState(layout: event.layout));
+        emit(DashboardState(layout: event.layout, mode: event.mode));
       } else if (event is DashApprove) {
-        emit(DashboardState(layout: event.layout));
+        emit(DashboardState(layout: event.layout, mode: event.mode));
       }
     });
   }

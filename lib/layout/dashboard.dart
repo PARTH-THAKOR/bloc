@@ -1,8 +1,7 @@
 import 'package:bloc_dash/bloc/dashboard_bloc.dart';
-import 'package:bloc_dash/layout/dashboard_account.dart';
-import 'package:bloc_dash/layout/dashboard_approve.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'themes.dart';
 
 class DashboardWebUser extends StatelessWidget {
@@ -55,7 +54,7 @@ class DashboardWebUser extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Container(
-                                decoration: (state.layout is DashAccountR)
+                                decoration: (state.mode == 'account')
                                     ? const BoxDecoration(
                                         color: AppTheme.primaryBackground,
                                       )
@@ -64,14 +63,13 @@ class DashboardWebUser extends StatelessWidget {
                                   onTap: () {
                                     context.read<DashboardBloc>().add(DashAccount());
                                   },
-                                  title: Text('Account Details',
-                                      style: (state.layout is DashAccountR) ? WebText.textMedium() : WebText.textMediumLight()),
+                                  title: Text('Account Details', style: (state.mode == 'account') ? WebText.textMedium() : WebText.textMediumLight()),
                                   dense: false,
                                   contentPadding: const EdgeInsetsDirectional.fromSTEB(25, 15, 15, 15),
                                 ),
                               ),
                               Container(
-                                decoration: (state.layout is DashApproveR)
+                                decoration: (state.mode == 'approve')
                                     ? const BoxDecoration(
                                         color: AppTheme.primaryBackground,
                                       )
@@ -80,8 +78,8 @@ class DashboardWebUser extends StatelessWidget {
                                   onTap: () {
                                     context.read<DashboardBloc>().add(DashApprove());
                                   },
-                                  title: Text('Approved Requests',
-                                      style: (state.layout is DashApproveR) ? WebText.textMedium() : WebText.textMediumLight()),
+                                  title:
+                                      Text('Approved Requests', style: (state.mode == 'approve') ? WebText.textMedium() : WebText.textMediumLight()),
                                   dense: false,
                                   contentPadding: const EdgeInsetsDirectional.fromSTEB(25, 15, 15, 15),
                                 ),
