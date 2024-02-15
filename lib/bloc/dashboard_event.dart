@@ -1,8 +1,6 @@
 part of 'dashboard_bloc.dart';
 
-abstract class DashboardEvent extends Equatable {
-  const DashboardEvent();
-}
+abstract class DashboardEvent extends Equatable {}
 
 class DashAccount extends DashboardEvent {
   final String mode = 'account';
